@@ -34,6 +34,10 @@ jobs:
           keyFilter: DemoComponent:Settings:*
           labelFilter: DEV
 
+      - name: Print Value
+        shell: pwsh
+        run: |
+          Write-Host $env:DemoComponent__Settings__SAName
 
       # - name: Deploy ARM template
       #   uses: azure/arm-deploy@v1
