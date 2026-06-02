@@ -25,7 +25,13 @@ jobs:
           ./Powershell/Get-AppConfig.ps1 `
             -FirstName "Amey" `
             -LastName "Latkar"
-            
+      
+      - uses: Azure/app-configuration-import-action@v1.0.0
+        with:
+          name: "demo-dev-eun-aac"
+          prefix: "DemoComponent:Settings:"
+          label: DEV
+                  
       # - name: Deploy ARM template
       #   uses: azure/arm-deploy@v1
       #   with:
