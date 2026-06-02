@@ -26,13 +26,15 @@ jobs:
             -FirstName "Amey" `
             -LastName "Latkar"
       
-      - uses: Azure/app-configuration-import-action@v1.0.0
+      - name: Get Azure App Configuration
+        uses: flcdrg/get-azure-app-configuration-action@v6.0.16
         with:
-          name: "demo-dev-eun-aac"
-          prefix: "DemoComponent:Settings:"
-          label: DEV
-          path: "./AppConfig/appsettings.json"
-                  
+          resourceGroup: freeresource
+          appConfigurationName: demo-dev-eun-aac
+          keyFilter: DemoComponent:Settings:*
+          labelFilter: DEV
+
+
       # - name: Deploy ARM template
       #   uses: azure/arm-deploy@v1
       #   with:
