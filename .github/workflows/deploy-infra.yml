@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Deploy ARM template to Azure
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -31,7 +31,6 @@ jobs:
           name: "demo-dev-eun-aac"
           prefix: "DemoComponent:Settings:"
           label: DEV
-          path: "./AppConfig/appsettings.json"
                   
       # - name: Deploy ARM template
       #   uses: azure/arm-deploy@v1
