@@ -39,13 +39,24 @@ jobs:
         run: |
           Write-Host $env:DemoComponent__Settings__SAName
 
-      # - name: Deploy ARM template
-      #   uses: azure/arm-deploy@v1
-      #   with:
-      #     subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      #     resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP }}
-      #     resourceGroupLocation: eastus
-      #     template: ./Infra/template.json
-      #     parameters: ./Infra/parameters.json
-      #     deploymentMode: Incremental
-      #     deploymentName: deploy-storage-account
+      - name: Variable substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: './Infra/parameters.json'
+        env:
+          parameters.storageAccountName.value: ${{ env.DemoComponent__Settings__storageAccountName }}
+          parameters.location.value: ${{ env.DemoComponent__Settings__location }}
+          parameters.skuName.value: ${{ env.DemoComponent__Settings__skuName }}
+          parameters.kind.value: ${{ env.DemoComponent__Settings__kind }}
+          parameters.accessTier.value: ${{ env.DemoComponent__Settings__accessTier }}
+
+      - name: Deploy ARM template
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          resourceGroupLocation: eastus
+          template: ./Infra/template.json
+          parameters: ./Infra/parameters.json
+          deploymentMode: Incremental
+          deploymentName: deploy-storage-account
