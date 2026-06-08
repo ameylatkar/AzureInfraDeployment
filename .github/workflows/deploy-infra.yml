@@ -30,7 +30,7 @@ jobs:
         uses: flcdrg/get-azure-app-configuration-action@v6.0.16
         with:
           resourceGroup: freeresource
-          appConfigurationName: demo-dev-eun-aac
+          appConfigurationName: amey-dev-eun-aac
           keyFilter: DemoComponent:Settings:*
           labelFilter: DEV
 
