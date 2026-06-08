@@ -3,19 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "ameylatkargha006"
+      "value": null
     },
     "location": {
-      "value": "eastus"
+      "value": null
     },
     "skuName": {
-      "value": "Standard_LRS"
+      "value": null
     },
     "kind": {
-      "value": "StorageV2"
+      "value": null
     },
     "accessTier": {
-      "value": "Hot"
+      "value": null
     }
   }
 }
