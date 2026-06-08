@@ -50,6 +50,9 @@ jobs:
           parameters.kind.value: ${{ env.DemoComponent__Settings__kind }}
           parameters.accessTier.value: ${{ env.DemoComponent__Settings__accessTier }}
 
+      - name: Show updated file
+        run: cat ./Infra/parameters.json
+
       - name: Deploy ARM template
         uses: azure/arm-deploy@v1
         with:
