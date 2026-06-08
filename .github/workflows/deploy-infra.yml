@@ -37,7 +37,7 @@ jobs:
       - name: Print Value
         shell: pwsh
         run: |
-          Write-Host $env:DemoComponent__Settings__SAName
+          Write-Host $env:DemoComponent__Settings__storageAccountName
 
       - name: Variable substitution
         uses: microsoft/variable-substitution@v1
