@@ -44,11 +44,11 @@ jobs:
         with:
           files: './Infra/parameters.json'
         env:
-          parameters.storageAccountName.value: ${{ env.DemoComponent:Settings:storageAccountName }}
-          parameters.location.value: ${{ env.DemoComponent:Settings:location }}
-          parameters.skuName.value: ${{ env.DemoComponent:Settings:skuName }}
-          parameters.kind.value: ${{ env.DemoComponent:Settings:kind }}
-          parameters.accessTier.value: ${{ env.DemoComponent:Settings:accessTier }}
+          parameters.storageAccountName.value: ${{ env['DemoComponent:Settings:storageAccountName'] }}
+          parameters.location.value: ${{ env['DemoComponent:Settings:location'] }}
+          parameters.skuName.value: ${{ env['DemoComponent:Settings:skuName'] }}
+          parameters.kind.value: ${{ env['DemoComponent:Settings:kind'] }}
+          parameters.accessTier.value: ${{ env['DemoComponent:Settings:accessTier'] }}
 
       - name: Show updated file
         run: cat ./Infra/parameters.json
