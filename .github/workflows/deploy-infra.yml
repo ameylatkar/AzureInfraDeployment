@@ -19,12 +19,12 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Run PowerShell Script
-        shell: pwsh
-        run: |
-          ./Powershell/Get-AppConfig.ps1 `
-            -FirstName "Amey" `
-            -LastName "Latkar"
+      # - name: Run PowerShell Script
+      #   shell: pwsh
+      #   run: |
+      #     ./Powershell/Get-AppConfig.ps1 `
+      #       -FirstName "Amey" `
+      #       -LastName "Latkar"
       
       - name: Get Azure App Configuration
         uses: flcdrg/get-azure-app-configuration-action@v6.0.16
@@ -33,11 +33,6 @@ jobs:
           appConfigurationName: amey-dev-eun-aac
           keyFilter: DemoComponent:Settings:*
           labelFilter: DEV
-
-      - name: Print Value
-        shell: pwsh
-        run: |
-          Write-Host $env:DemoComponent__Settings__storageAccountName
 
       - name: Variable substitution
         uses: microsoft/variable-substitution@v1
@@ -50,8 +45,8 @@ jobs:
           parameters.kind.value: ${{ env['DemoComponent:Settings:kind'] }}
           parameters.accessTier.value: ${{ env['DemoComponent:Settings:accessTier'] }}
 
-      - name: Show updated file
-        run: cat ./Infra/parameters.json
+      # - name: Show updated file
+      #   run: cat ./Infra/parameters.json
 
       - name: Deploy ARM template
         uses: azure/arm-deploy@v1
