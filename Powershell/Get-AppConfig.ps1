@@ -4,5 +4,4 @@ param(
 )
 
 $FullName = "$FirstName $LastName"
-
 Write-Host "Full Name: $FullName"
