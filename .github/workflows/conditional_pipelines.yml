@@ -25,7 +25,8 @@ jobs:
         run: echo "Deploying..."
 
       - name: PrintName
-        if: github.event.inputs.user_name != ''
-        run: echo "User Name: ${{ github.event.inputs.user_name }}"
+        if: ${{ inputs.user_name }}
+        run: |  
+            echo "User Name: ${{ inputs.user_name }}"
 
         
