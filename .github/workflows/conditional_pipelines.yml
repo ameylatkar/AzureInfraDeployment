@@ -29,4 +29,12 @@ jobs:
         run: |  
             echo "User Name: ${{ inputs.user_name }}"
 
+      - name: Create Variable
+        run: |
+          echo "FavouriteCricketer=ViratKohli" >> $GITHUB_ENV
+
+      - name: Use Variable
+        run: |
+          echo "My favourite cricketer is: $FavouriteCricketer"
+
         
