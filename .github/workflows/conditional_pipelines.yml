@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy application'
+        required: true
+        default: 'false'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo "Building..."
+
+      - name: Deploy
+        if: github.event.inputs.deploy == 'true'
+        run: echo "Deploying..."
