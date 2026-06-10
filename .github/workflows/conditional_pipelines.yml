@@ -1,3 +1,5 @@
+name: Conditional Tasks Execution
+
 on:
   workflow_dispatch:
     inputs:
