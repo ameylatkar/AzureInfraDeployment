@@ -16,6 +16,9 @@ jobs:
   conditioChecksJob:
     runs-on: ubuntu-latest
 
+    outputs:
+      FavouriteActor: ${{ steps.create.outputs.FavouriteActor }}
+
     steps:
       - name: Build
         run: echo "Building..."
@@ -46,3 +49,12 @@ jobs:
         run: |
           echo "My favourite actor is ${{ steps.create.outputs.FavouriteActor }}"
        # ********************************************************************** 
+       
+  secondJob:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Use Output
+        run: |
+          echo "User name is ${{ needs.conditioChecksJob.outputs.FavouriteActor }}"
