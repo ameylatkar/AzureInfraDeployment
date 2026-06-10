@@ -40,9 +40,9 @@ jobs:
       - name: Create Output
         id: create
         run: |
-          echo "FavouriteCricketer=ViratKohli" >> $GITHUB_OUTPUT
+          echo "FavouriteActor=SRK" >> $GITHUB_OUTPUT
 
       - name: Use Output
         run: |
-          echo "User name is ${{ steps.create.outputs.FavouriteCricketer }}"
+          echo "User name is ${{ steps.create.outputs.FavouriteActor }}"
        # ********************************************************************** 
