@@ -58,4 +58,4 @@ jobs:
     
       - name: Use Output
         run: |
-          echo "User name is ${{ needs.conditioChecksJob.outputs.FavouriteActor }}"
+          echo "My favourite actor is ${{ needs.conditioChecksJob.outputs.FavouriteActor }}"
