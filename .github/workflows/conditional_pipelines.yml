@@ -51,6 +51,7 @@ jobs:
        # ********************************************************************** 
        
   secondJob:
+    needs: conditioChecksJob
     runs-on: ubuntu-latest
 
     steps:
