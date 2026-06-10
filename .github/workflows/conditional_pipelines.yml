@@ -44,5 +44,5 @@ jobs:
 
       - name: Use Output
         run: |
-          echo "User name is ${{ steps.create.outputs.FavouriteActor }}"
+          echo "My favourite actor is ${{ steps.create.outputs.FavouriteActor }}"
        # ********************************************************************** 
