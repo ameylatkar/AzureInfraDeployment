@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Build
         run: echo "Building..."
-
+      # **********************************************************************
       - name: Deploy
         if: github.event.inputs.deploy == 'true'
         run: echo "Deploying..."
@@ -28,7 +28,7 @@ jobs:
         if: ${{ inputs.user_name }}
         run: |  
             echo "User Name: ${{ inputs.user_name }}"
-
+      # **********************************************************************
       - name: Create Variable
         run: |
           echo "FavouriteCricketer=ViratKohli" >> $GITHUB_ENV
@@ -36,5 +36,13 @@ jobs:
       - name: Use Variable
         run: |
           echo "My favourite cricketer is: $FavouriteCricketer"
+      # **********************************************************************
+      - name: Create Output
+        id: create
+        run: |
+          echo "FavouriteCricketer=ViratKohli" >> $GITHUB_OUTPUT
 
-        
+      - name: Use Output
+        run: |
+          echo "User name is ${{ steps.create.outputs.FavouriteCricketer }}"
+       # ********************************************************************** 
